@@ -43,7 +43,7 @@ BEGIN{
 {
         year=substr($1,0,4)
         month=substr($1,6,2)
-        dia=substr($1,9,2)
+        day=substr($1,9,2)
         hour=substr($1,12,2)
         minute=$2
         second=substr($3,0,2)
@@ -53,15 +53,15 @@ BEGIN{
                 if (description[2] == S_IP){
                         show_neighbour_1=1
                         if (description[3] == "Down"){
-                                S_timeDown=mktime(year" "month" "dia" "hour" "minute" "second)
-                                S_lastDate_DOWN=year"/"month"/"dia" "hour":"minute":"second
+                                S_timeDown=mktime(year" "month" "day" "hour" "minute" "second)
+                                S_lastDate_DOWN=year"/"month"/"day" "hour":"minute":"second
                         }else if (description[3] == "Up"){
-                                S_timeUp=mktime(year" "month" "dia" "hour" "minute" "second)
-                                S_lastDate_UP=year"/"month"/"dia" "hour":"minute":"second
+                                S_timeUp=mktime(year" "month" "day" "hour" "minute" "second)
+                                S_lastDate_UP=year"/"month"/"day" "hour":"minute":"second
                                 S_amountOfFailures++
                                 if (!S_lastDate_DOWN){
-                                        S_lastDate_DOWN=year"/"month"/"dia" 00:00:00"
-                                        S_timeDown=mktime(year" "month" "dia" 00 00 00")
+                                        S_lastDate_DOWN=year"/"month"/"day" 00:00:00"
+                                        S_timeDown=mktime(year" "month" "day" 00 00 00")
                                 }
                                 S_failureStart[S_amountOfFailures]=S_lastDate_DOWN
                                 S_failureEnd[S_amountOfFailures]=S_lastDate_UP
@@ -71,15 +71,15 @@ BEGIN{
                 } else if (description[2] == C_IP){
                         show_neighbour_2=1
                         if (description[3] == "Down"){
-                                C_timeDown=mktime(year" "month" "dia" "hour" "minute" "second)
-                                C_lastDate_DOWN=year"/"month"/"dia" "hour":"minute":"second
+                                C_timeDown=mktime(year" "month" "day" "hour" "minute" "second)
+                                C_lastDate_DOWN=year"/"month"/"day" "hour":"minute":"second
                         }else if (description[3] == "Up"){
-                                C_timeUp=mktime(year" "month" "dia" "hour" "minute" "second)
-                                C_lastDate_UP=year"/"month"/"dia" "hour":"minute":"second
+                                C_timeUp=mktime(year" "month" "day" "hour" "minute" "second)
+                                C_lastDate_UP=year"/"month"/"day" "hour":"minute":"second
                                 C_amountOfFailures++
                                 if (!C_lastDate_DOWN){
-                                        C_lastDate_DOWN=year"/"month"/"dia" 00:00:00"
-                                        C_timeDown=mktime(year" "month" "dia" 00 00 00")
+                                        C_lastDate_DOWN=year"/"month"/"day" 00:00:00"
+                                        C_timeDown=mktime(year" "month" "day" 00 00 00")
                                 }
                                 C_failureStart[C_amountOfFailures]=C_lastDate_DOWN
                                 C_failureEnd[C_amountOfFailures]=C_lastDate_UP
